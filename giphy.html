@@ -1,0 +1,24 @@
+<input /><br>
+<img />
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script>
+	$(document).keyup(function(e){
+		if(e.key == 'Enter' && $('input').val().length > 0){
+			getRandomGif($('input').val())
+			// $('input').val('')
+		}
+	})
+	function getRandomGif(tag){
+		var url = 'https://api.giphy.com/v1/gifs/random?api_key=SnREKKYQNbZIxQm0BvFOeBhW1lYCDpjy&tag='+tag
+		fetch(url)
+			.then(function(response){return response.json()})
+			.then(function(data){
+				// console.log(data)
+				$('img').attr('src', data.data.image_original_url)
+			  })
+			.catch(function(error){
+				return console.log(error)
+			})
+	}
+	
+</script>
