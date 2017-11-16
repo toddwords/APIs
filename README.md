@@ -50,7 +50,7 @@ These APIs have simplified methods for commonly used API functions so you don't 
 [Request](https://www.npmjs.com/package/request) is a souped-up version of the built-in Node http package that makes it much easier to make HTTP requests and API calls.
 You'll need to install request with `npm install request`
 A basic Request api call looks like this:
-```
+```javascript
 var request = require('request')
 request('https://api.giphy.com/v1/gifs/random?api_key=SnREKKYQNbZIxQm0BvFOeBhW1lYCDpjy&tag=dog', function(error,response,data){
   if(error){
@@ -60,7 +60,7 @@ request('https://api.giphy.com/v1/gifs/random?api_key=SnREKKYQNbZIxQm0BvFOeBhW1l
 }
 ```
 You can also write out the query string as an object, which is handy when there's a lot of variables you want to change. Look at this example from the Wikipedia Api:
-```
+```javascript
 var request = require('request')
 request({
 	url:'https://en.wikipedia.org/w/api.php',
@@ -79,7 +79,7 @@ request({
 })
 ```
 The data looks like JSON in the console, but we can't access it like JSON until we parse it. To do this we use a command called JSON.parse(). This is useful because we usually don't want the entire response from an API, just part of it. The example below shows how we extract the image URL from the Giphy API response and then use that to download the image:
-```
+```javascript
 var request = require('request')
 request('https://api.giphy.com/v1/gifs/random?api_key=SnREKKYQNbZIxQm0BvFOeBhW1lYCDpjy&tag=dog', function(error,response,data){
   if(error){
@@ -98,7 +98,7 @@ The line `data.data.image_original_url` is kind of weird, this is because the Gi
 You don't have to use Node to access API. Depending on what you're using them for, it may make more sense to access them from the browser, especially if you're trying to immediately show that data on a web page. In bygone days you used to have to use jQuery to do this using a relatively complex AJAX function. But with the new ES6 version of javascript, there's a built-in function called `fetch` which is perfect for it.
 
 The basic syntax of a fetch request is as follows:
-```
+```javascript
 var url = 'https://api.giphy.com/v1/gifs/random?api_key=SnREKKYQNbZIxQm0BvFOeBhW1lYCDpjy&tag=dog'
 		fetch(url)
       //.then is a synchronous function that runs after the data is loaded
@@ -113,7 +113,7 @@ var url = 'https://api.giphy.com/v1/gifs/random?api_key=SnREKKYQNbZIxQm0BvFOeBhW
 			})
 ```
 First we `fetch` the URL, `then` we convert into the type of data we want to use `then` we do stuff with it. Also an important note:
-```
+```javascript
 fetch(url)
   .then(code...)
   .then(code...)
