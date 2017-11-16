@@ -100,17 +100,18 @@ You don't have to use Node to access API. Depending on what you're using them fo
 The basic syntax of a fetch request is as follows:
 ```javascript
 var url = 'https://api.giphy.com/v1/gifs/random?api_key=SnREKKYQNbZIxQm0BvFOeBhW1lYCDpjy&tag=dog'
-		fetch(url)
+fetch(url)
       //.then is a synchronous function that runs after the data is loaded
       //first we convert the data into a json promise
-			.then(function(response){return response.json()})
+      .then(function(response){return response.json()})
       //then we do stuff with it, it needs to be done in two steps
-			.then(function(data){
-			  console.log(data)
-			//catch runs when there's an error
+      .then(function(data){
+	console.log(data)
+       }
+	//catch runs when there's an error
       .catch(function(error){
-				return console.log(error)
-			})
+	return console.log(error)
+	})
 ```
 First we `fetch` the URL, `then` we convert into the type of data we want to use `then` we do stuff with it. Also an important note:
 ```javascript
