@@ -12,6 +12,7 @@ request({
 	if(err){
 	 return console.log('Error ' + err)
 	}
+	// console.log(data)
 	var dataObj = JSON.parse(data).query.pages
 	for (var page in dataObj){
 		console.log(dataObj[page].extract)
